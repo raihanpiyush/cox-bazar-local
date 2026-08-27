@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Cox's Bazar Local</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f7fa;
+    color: #222;
+}
+
+header {
+    background: #111827;
+    color: white;
+    padding: 18px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.cart-btn {
+    background: white;
+    color: #111827;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.hero {
+    background: #e8f3ff;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    color: #555;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 25px 15px;
+}
+
+.categories {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    margin-bottom: 25px;
+}
+
+.category {
+    background: white;
+    padding: 10px 16px;
+    border-radius: 20px;
+    white-space: nowrap;
+    border: 1px solid #ddd;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+}
+
+.product {
+    background: white;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+}
+
+.product-img {
+    height: 130px;
+    background: #eee;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 45px;
+    margin-bottom: 12px;
+}
+
+.product h3 {
+    font-size: 17px;
+    margin-bottom: 7px;
+}
+
+.price {
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.add-btn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 7px;
+    background: #111827;
+    color: white;
+    cursor: pointer;
+}
+
+.cart {
+    margin-top: 30px;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.checkout {
+    margin-top: 20px;
+}
+
+.checkout input,
+.checkout textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 7px 0;
+    border: 1px solid #ddd;
+    border-radius: 7px;
+}
+
+.order-btn {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background: #16a34a;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+footer {
+    margin-top: 40px;
+    padding: 25px;
+    background: #111827;
+    color: white;
+    text-align: center;
+}
+
+@media(max-width:600px) {
+    .hero h1 {
+        font-size: 25px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">Cox's Bazar Local</div>
+
+    <button class="cart-btn" onclick="scrollToCart()">
+        🛒 Cart (<span id="cartCount">0</span>)
+    </button>
+</header>
+
+<section class="hero">
+    <h1>কক্সবাজারে দ্রুত ডেলিভারি</h1>
+    <p>আপনার প্রয়োজনীয় পণ্য, আপনার দরজায়</p>
+</section>
+
+<div class="container">
+
+    <div class="categories">
+        <div class="category">সব</div>
+        <div class="category">🛒 Grocery</div>
+        <div class="category">📱 Electronics</div>
+        <div class="category">👕 Fashion</div>
+        <div class="category">💊 Health</div>
+        <div class="category">📚 Stationery</div>
+    </div>
+
+    <h2>জনপ্রিয় পণ্য</h2>
+
+    <br>
+
+    <div class="products">
+
+        <div class="product">
+            <div class="product-img">💧</div>
+            <h3>মিনারেল ওয়াটার</h3>
+            <div class="price">৳30</div>
+            <button class="add-btn"
+                onclick="addToCart('মিনারেল ওয়াটার',30)">
+                Add to Cart
+            </button>
+        </div>
+
+        <div class="product">
+            <div class="product-img">🔌</div>
+            <h3>USB Charger</h3>
+            <div class="price">৳350</div>
+            <button class="add-btn"
+                onclick="addToCart('USB Charger',350)">
+                Add to Cart
+            </button>
+        </div>
+
+        <div class="product">
+            <div class="product-img">🎧</div>
+            <h3>Earphone</h3>
+            <div class="price">৳250</div>
+            <button class="add-btn"
+                onclick="addToCart('Earphone',250)">
+                Add to Cart
+            </button>
+        </div>
+
+        <div class="product">
+            <div class="product-img">🧴</div>
+            <h3>Shampoo</h3>
+            <div class="price">৳180</div>
+            <button class="add-btn"
+                onclick="addToCart('Shampoo',180)">
+                Add to Cart
+            </button>
+        </div>
+
+        <div class="product">
+            <div class="product-img">🧻</div>
+            <h3>Tissue</h3>
+            <div class="price">৳120</div>
+            <button class="add-btn"
+                onclick="addToCart('Tissue',120)">
+                Add to Cart
+            </button>
+        </div>
+
+        <div class="product">
+            <div class="product-img">🔋</div>
+            <h3>Battery</h3>
+            <div class="price">৳80</div>
+            <button class="add-btn"
+                onclick="addToCart('Battery',80)">
+                Add to Cart
+            </button>
+        </div>
+
+    </div>
+
+    <div class="cart" id="cart">
+
+        <h2>আপনার Cart</h2>
+
+        <div id="cartItems">
+            <p style="margin-top:15px;">Cart এখনো খালি।</p>
+        </div>
+
+        <br>
+
+        <h3>পণ্যের মূল্য: ৳<span id="subtotal">0</span></h3>
+        <h3>Delivery: ৳<span id="delivery">0</span></h3>
+        <h2>মোট: ৳<span id="total">0</span></h2>
+
+        <div class="checkout">
+
+            <h2>অর্ডার করুন</h2>
+
+            <input
+                type="text"
+                id="name"
+                placeholder="আপনার নাম">
+
+            <input
+                type="tel"
+                id="phone"
+                placeholder="মোবাইল নম্বর">
+
+            <textarea
+                id="address"
+                rows="4"
+                placeholder="ডেলিভারি ঠিকানা"></textarea>
+
+            <button class="order-btn"
+                onclick="placeOrder()">
+                অর্ডার করুন
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<footer>
+    © 2026 Cox's Bazar Local
+</footer>
+
+
+<script>
+
+let cart = [];
+
+function addToCart(name, price) {
+
+    let existing = cart.find(item => item.name === name);
+
+    if(existing) {
+        existing.quantity++;
+    } else {
+        cart.push({
+            name: name,
+            price: price,
+            quantity: 1
+        });
+    }
+
+    updateCart();
+}
+
+function updateCart() {
+
+    let cartItems = document.getElementById("cartItems");
+
+    cartItems.innerHTML = "";
+
+    let subtotal = 0;
+    let count = 0;
+
+    if(cart.length === 0) {
+
+        cartItems.innerHTML =
+            "<p>Cart এখনো খালি।</p>";
+
+    } else {
+
+        cart.forEach((item, index) => {
+
+            subtotal += item.price * item.quantity;
+            count += item.quantity;
+
+            let div = document.createElement("div");
+
+            div.className = "cart-item";
+
+            div.innerHTML = `
+                <div>
+                    <strong>${item.name}</strong><br>
+                    ৳${item.price} × ${item.quantity}
+                </div>
+
+                <button onclick="removeItem(${index})">
+                    ❌
+                </button>
+            `;
+
+            cartItems.appendChild(div);
+
+        });
+
+    }
+
+    let delivery = 0;
+
+    if(subtotal > 0 && subtotal < 199) {
+        delivery = 20;
+    }
+
+    document.getElementById("cartCount").innerText = count;
+
+    document.getElementById("subtotal").innerText =
+        subtotal;
+
+    document.getElementById("delivery").innerText =
+        delivery;
+
+    document.getElementById("total").innerText =
+        subtotal + delivery;
+}
+
+function removeItem(index) {
+
+    cart.splice(index, 1);
+
+    updateCart();
+}
+
+function scrollToCart() {
+
+    document.getElementById("cart")
+        .scrollIntoView({
+            behavior: "smooth"
+        });
+}
+
+function placeOrder() {
+
+    if(cart.length === 0) {
+
+        alert("আগে কিছু পণ্য Cart-এ যোগ করুন।");
+
+        return;
+    }
+
+    let name =
+        document.getElementById("name").value;
+
+    let phone =
+        document.getElementById("phone").value;
+
+    let address =
+        document.getElementById("address").value;
+
+    if(!name || !phone || !address) {
+
+        alert("অনুগ্রহ করে আপনার নাম, মোবাইল নম্বর ও ঠিকানা দিন।");
+
+        return;
+    }
+
+    alert(
+        "ধন্যবাদ " + name +
+        "! আপনার অর্ডার গ্রহণ করা হয়েছে।"
+    );
+
+}
+
+updateCart();
+
+</script>
+
+</body>
+</html>
