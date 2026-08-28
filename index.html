@@ -1,456 +1,530 @@
-<!DOCTYPE html>
+
+    <!DOCTYPE html>
 <html lang="bn">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Cox's Bazar Local</title>
+<meta name="description" content="Cox's Local — Cox's Bazar শহরে দ্রুত বাজার ও নিত্যপ্রয়োজনীয় পণ্য ডেলিভারি।">
+<title>Cox's Local — Quick Delivery</title>
 
 <style>
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+:root{
+  --green:#079455;
+  --green-dark:#056b3d;
+  --light-green:#eaf8f1;
+  --orange:#ff7a18;
+  --dark:#17221c;
+  --gray:#6b756f;
+  --bg:#f7faf8;
+  --white:#fff;
+  --border:#e5ebe7;
+  --shadow:0 8px 25px rgba(0,0,0,.07);
+  --radius:18px;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background: #f5f7fa;
-    color: #222;
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
 }
 
-header {
-    background: #111827;
-    color: white;
-    padding: 18px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+body{
+  font-family:Arial,"Noto Sans Bengali",sans-serif;
+  background:var(--bg);
+  color:var(--dark);
+  line-height:1.5;
 }
 
-.logo {
-    font-size: 22px;
-    font-weight: bold;
+button,input{
+  font:inherit;
 }
 
-.cart-btn {
-    background: white;
-    color: #111827;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 8px;
-    cursor: pointer;
+button{
+  border:0;
+  cursor:pointer;
 }
 
-.hero {
-    background: #e8f3ff;
-    padding: 40px 20px;
-    text-align: center;
+a{
+  text-decoration:none;
+  color:inherit;
 }
 
-.hero h1 {
-    font-size: 32px;
-    margin-bottom: 10px;
+/* TOP BAR */
+.topbar{
+  background:var(--green);
+  color:white;
+  text-align:center;
+  padding:9px 12px;
+  font-size:14px;
 }
 
-.hero p {
-    color: #555;
+/* HEADER */
+header{
+  background:white;
+  position:sticky;
+  top:0;
+  z-index:100;
+  border-bottom:1px solid var(--border);
 }
 
-.container {
-    max-width: 1000px;
-    margin: auto;
-    padding: 25px 15px;
+.nav{
+  max-width:1200px;
+  margin:auto;
+  padding:14px 18px;
+  display:flex;
+  align-items:center;
+  gap:18px;
 }
 
-.categories {
-    display: flex;
-    gap: 10px;
-    overflow-x: auto;
-    margin-bottom: 25px;
+.logo{
+  font-size:25px;
+  font-weight:900;
+  white-space:nowrap;
+  color:var(--green);
 }
 
-.category {
-    background: white;
-    padding: 10px 16px;
-    border-radius: 20px;
-    white-space: nowrap;
-    border: 1px solid #ddd;
+.logo span{
+  color:var(--orange);
 }
 
-.products {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 15px;
+.location{
+  font-size:12px;
+  color:var(--gray);
+  white-space:nowrap;
 }
 
-.product {
-    background: white;
-    border-radius: 12px;
-    padding: 15px;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+.location b{
+  display:block;
+  color:var(--dark);
+  font-size:14px;
 }
 
-.product-img {
-    height: 130px;
-    background: #eee;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 45px;
-    margin-bottom: 12px;
+.search{
+  flex:1;
+  position:relative;
 }
 
-.product h3 {
-    font-size: 17px;
-    margin-bottom: 7px;
+.search input{
+  width:100%;
+  padding:13px 16px 13px 44px;
+  border:1px solid var(--border);
+  background:#f5f8f6;
+  border-radius:14px;
+  outline:none;
 }
 
-.price {
-    font-weight: bold;
-    margin-bottom: 12px;
+.search input:focus{
+  border-color:var(--green);
+  background:white;
 }
 
-.add-btn {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 7px;
-    background: #111827;
-    color: white;
-    cursor: pointer;
+.search-icon{
+  position:absolute;
+  left:15px;
+  top:10px;
+  font-size:20px;
 }
 
-.cart {
-    margin-top: 30px;
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
+.cart-btn{
+  background:var(--dark);
+  color:white;
+  border-radius:14px;
+  padding:12px 16px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-weight:bold;
 }
 
-.cart-item {
-    display: flex;
-    justify-content: space-between;
-    padding: 12px 0;
-    border-bottom: 1px solid #eee;
+.cart-count{
+  background:var(--orange);
+  padding:2px 8px;
+  border-radius:20px;
+  font-size:13px;
 }
 
-.checkout {
-    margin-top: 20px;
+/* CONTAINER */
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:0 18px;
 }
 
-.checkout input,
-.checkout textarea {
-    width: 100%;
-    padding: 12px;
-    margin: 7px 0;
-    border: 1px solid #ddd;
-    border-radius: 7px;
+/* HERO */
+.hero{
+  margin:24px auto;
+  background:linear-gradient(120deg,#064d32,#079455);
+  border-radius:25px;
+  color:white;
+  padding:38px;
+  min-height:320px;
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
 }
 
-.order-btn {
-    width: 100%;
-    padding: 14px;
-    border: none;
-    border-radius: 8px;
-    background: #16a34a;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    margin-top: 10px;
+.hero:before{
+  content:"";
+  position:absolute;
+  width:350px;
+  height:350px;
+  border-radius:50%;
+  right:-80px;
+  top:-120px;
+  background:rgba(255,255,255,.08);
 }
 
-footer {
-    margin-top: 40px;
-    padding: 25px;
-    background: #111827;
-    color: white;
-    text-align: center;
+.hero:after{
+  content:"";
+  position:absolute;
+  width:250px;
+  height:250px;
+  border-radius:50%;
+  right:100px;
+  bottom:-170px;
+  background:rgba(255,255,255,.06);
 }
 
-@media(max-width:600px) {
-    .hero h1 {
-        font-size: 25px;
-    }
-}
-</style>
-</head>
-
-<body>
-
-<header>
-    <div class="logo">Cox's Bazar Local</div>
-
-    <button class="cart-btn" onclick="scrollToCart()">
-        🛒 Cart (<span id="cartCount">0</span>)
-    </button>
-</header>
-
-<section class="hero">
-    <h1>কক্সবাজারে দ্রুত ডেলিভারি</h1>
-    <p>আপনার প্রয়োজনীয় পণ্য, আপনার দরজায়</p>
-</section>
-
-<div class="container">
-
-    <div class="categories">
-        <div class="category">সব</div>
-        <div class="category">🛒 Grocery</div>
-        <div class="category">📱 Electronics</div>
-        <div class="category">👕 Fashion</div>
-        <div class="category">💊 Health</div>
-        <div class="category">📚 Stationery</div>
-    </div>
-
-    <h2>জনপ্রিয় পণ্য</h2>
-
-    <br>
-
-    <div class="products">
-
-        <div class="product">
-            <div class="product-img">💧</div>
-            <h3>মিনারেল ওয়াটার</h3>
-            <div class="price">৳30</div>
-            <button class="add-btn"
-                onclick="addToCart('মিনারেল ওয়াটার',30)">
-                Add to Cart
-            </button>
-        </div>
-
-        <div class="product">
-            <div class="product-img">🔌</div>
-            <h3>USB Charger</h3>
-            <div class="price">৳350</div>
-            <button class="add-btn"
-                onclick="addToCart('USB Charger',350)">
-                Add to Cart
-            </button>
-        </div>
-
-        <div class="product">
-            <div class="product-img">🎧</div>
-            <h3>Earphone</h3>
-            <div class="price">৳250</div>
-            <button class="add-btn"
-                onclick="addToCart('Earphone',250)">
-                Add to Cart
-            </button>
-        </div>
-
-        <div class="product">
-            <div class="product-img">🧴</div>
-            <h3>Shampoo</h3>
-            <div class="price">৳180</div>
-            <button class="add-btn"
-                onclick="addToCart('Shampoo',180)">
-                Add to Cart
-            </button>
-        </div>
-
-        <div class="product">
-            <div class="product-img">🧻</div>
-            <h3>Tissue</h3>
-            <div class="price">৳120</div>
-            <button class="add-btn"
-                onclick="addToCart('Tissue',120)">
-                Add to Cart
-            </button>
-        </div>
-
-        <div class="product">
-            <div class="product-img">🔋</div>
-            <h3>Battery</h3>
-            <div class="price">৳80</div>
-            <button class="add-btn"
-                onclick="addToCart('Battery',80)">
-                Add to Cart
-            </button>
-        </div>
-
-    </div>
-
-    <div class="cart" id="cart">
-
-        <h2>আপনার Cart</h2>
-
-        <div id="cartItems">
-            <p style="margin-top:15px;">Cart এখনো খালি।</p>
-        </div>
-
-        <br>
-
-        <h3>পণ্যের মূল্য: ৳<span id="subtotal">0</span></h3>
-        <h3>Delivery: ৳<span id="delivery">0</span></h3>
-        <h2>মোট: ৳<span id="total">0</span></h2>
-
-        <div class="checkout">
-
-            <h2>অর্ডার করুন</h2>
-
-            <input
-                type="text"
-                id="name"
-                placeholder="আপনার নাম">
-
-            <input
-                type="tel"
-                id="phone"
-                placeholder="মোবাইল নম্বর">
-
-            <textarea
-                id="address"
-                rows="4"
-                placeholder="ডেলিভারি ঠিকানা"></textarea>
-
-            <button class="order-btn"
-                onclick="placeOrder()">
-                অর্ডার করুন
-            </button>
-
-        </div>
-
-    </div>
-
-</div>
-
-<footer>
-    © 2026 Cox's Bazar Local
-</footer>
-
-
-<script>
-
-let cart = [];
-
-function addToCart(name, price) {
-
-    let existing = cart.find(item => item.name === name);
-
-    if(existing) {
-        existing.quantity++;
-    } else {
-        cart.push({
-            name: name,
-            price: price,
-            quantity: 1
-        });
-    }
-
-    updateCart();
+.hero-content{
+  position:relative;
+  z-index:2;
+  max-width:650px;
 }
 
-function updateCart() {
-
-    let cartItems = document.getElementById("cartItems");
-
-    cartItems.innerHTML = "";
-
-    let subtotal = 0;
-    let count = 0;
-
-    if(cart.length === 0) {
-
-        cartItems.innerHTML =
-            "<p>Cart এখনো খালি।</p>";
-
-    } else {
-
-        cart.forEach((item, index) => {
-
-            subtotal += item.price * item.quantity;
-            count += item.quantity;
-
-            let div = document.createElement("div");
-
-            div.className = "cart-item";
-
-            div.innerHTML = `
-                <div>
-                    <strong>${item.name}</strong><br>
-                    ৳${item.price} × ${item.quantity}
-                </div>
-
-                <button onclick="removeItem(${index})">
-                    ❌
-                </button>
-            `;
-
-            cartItems.appendChild(div);
-
-        });
-
-    }
-
-    let delivery = 0;
-
-    if(subtotal > 0 && subtotal < 199) {
-        delivery = 20;
-    }
-
-    document.getElementById("cartCount").innerText = count;
-
-    document.getElementById("subtotal").innerText =
-        subtotal;
-
-    document.getElementById("delivery").innerText =
-        delivery;
-
-    document.getElementById("total").innerText =
-        subtotal + delivery;
+.pill{
+  display:inline-block;
+  background:rgba(255,255,255,.15);
+  padding:7px 14px;
+  border-radius:30px;
+  margin-bottom:15px;
 }
 
-function removeItem(index) {
-
-    cart.splice(index, 1);
-
-    updateCart();
+.hero h1{
+  font-size:clamp(32px,5vw,55px);
+  line-height:1.08;
+  margin-bottom:15px;
 }
 
-function scrollToCart() {
-
-    document.getElementById("cart")
-        .scrollIntoView({
-            behavior: "smooth"
-        });
+.hero p{
+  color:#e1f5eb;
+  font-size:18px;
+  margin-bottom:23px;
 }
 
-function placeOrder() {
-
-    if(cart.length === 0) {
-
-        alert("আগে কিছু পণ্য Cart-এ যোগ করুন।");
-
-        return;
-    }
-
-    let name =
-        document.getElementById("name").value;
-
-    let phone =
-        document.getElementById("phone").value;
-
-    let address =
-        document.getElementById("address").value;
-
-    if(!name || !phone || !address) {
-
-        alert("অনুগ্রহ করে আপনার নাম, মোবাইল নম্বর ও ঠিকানা দিন।");
-
-        return;
-    }
-
-    alert(
-        "ধন্যবাদ " + name +
-        "! আপনার অর্ডার গ্রহণ করা হয়েছে।"
-    );
-
+.hero-buttons{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
 }
 
-updateCart();
+.primary{
+  background:white;
+  color:var(--green-dark);
+  padding:14px 22px;
+  border-radius:13px;
+  font-weight:800;
+}
 
-</script>
+.secondary{
+  background:rgba(255,255,255,.13);
+  color:white;
+  padding:14px 22px;
+  border-radius:13px;
+  font-weight:bold;
+}
 
-</body>
-</html>
+/* SECTION */
+.section{
+  margin:30px 0;
+}
+
+.section-title{
+  font-size:27px;
+  font-weight:900;
+  margin-bottom:5px;
+}
+
+.section-subtitle{
+  color:var(--gray);
+  margin-bottom:18px;
+}
+
+/* CATEGORIES */
+.categories{
+  display:flex;
+  gap:13px;
+  overflow-x:auto;
+  padding-bottom:8px;
+}
+
+.categories::-webkit-scrollbar{
+  display:none;
+}
+
+.category{
+  min-width:125px;
+  background:white;
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:18px 10px;
+  text-align:center;
+  transition:.2s;
+}
+
+.category:hover{
+  transform:translateY(-3px);
+  box-shadow:var(--shadow);
+}
+
+.category.active{
+  background:var(--light-green);
+  border-color:#a9ddc4;
+}
+
+.category-icon{
+  font-size:42px;
+  margin-bottom:8px;
+}
+
+.category-name{
+  font-weight:800;
+}
+
+/* PRODUCTS */
+.products{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:17px;
+}
+
+.product{
+  background:white;
+  border:1px solid var(--border);
+  border-radius:18px;
+  overflow:hidden;
+  transition:.2s;
+  position:relative;
+}
+
+.product:hover{
+  transform:translateY(-4px);
+  box-shadow:var(--shadow);
+}
+
+.product-image{
+  height:175px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#f3f8f5;
+  font-size:78px;
+}
+
+.discount{
+  position:absolute;
+  top:10px;
+  left:10px;
+  background:var(--orange);
+  color:white;
+  padding:4px 8px;
+  border-radius:7px;
+  font-size:11px;
+  font-weight:bold;
+}
+
+.product-info{
+  padding:14px;
+}
+
+.product-name{
+  font-size:17px;
+  font-weight:800;
+  margin-bottom:4px;
+}
+
+.product-size{
+  font-size:13px;
+  color:var(--gray);
+  margin-bottom:10px;
+}
+
+.price-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.price{
+  font-size:19px;
+  font-weight:900;
+}
+
+.old-price{
+  font-size:12px;
+  color:#999;
+  text-decoration:line-through;
+  margin-left:5px;
+}
+
+.add-btn{
+  background:var(--green);
+  color:white;
+  padding:8px 14px;
+  border-radius:10px;
+  font-weight:bold;
+}
+
+.add-btn:hover{
+  background:var(--green-dark);
+}
+
+/* WHY US */
+.features{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+
+.feature{
+  background:white;
+  border:1px solid var(--border);
+  padding:22px;
+  border-radius:18px;
+}
+
+.feature-icon{
+  font-size:35px;
+  margin-bottom:8px;
+}
+
+.feature h3{
+  margin-bottom:5px;
+}
+
+.feature p{
+  color:var(--gray);
+  font-size:14px;
+}
+
+/* FOOTER */
+footer{
+  background:var(--dark);
+  color:white;
+  margin-top:45px;
+  padding:35px 18px;
+}
+
+.footer-inner{
+  max-width:1200px;
+  margin:auto;
+}
+
+.footer-logo{
+  font-size:25px;
+  font-weight:900;
+  color:white;
+  margin-bottom:8px;
+}
+
+.footer-text{
+  color:#b8c3bd;
+  max-width:500px;
+  margin-bottom:20px;
+}
+
+.footer-bottom{
+  border-top:1px solid #354039;
+  padding-top:18px;
+  color:#9ca8a1;
+  font-size:13px;
+}
+
+/* CART DRAWER */
+.overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.45);
+  z-index:200;
+  display:none;
+}
+
+.overlay.show{
+  display:block;
+}
+
+.cart-drawer{
+  position:fixed;
+  right:-420px;
+  top:0;
+  width:390px;
+  max-width:92%;
+  height:100%;
+  background:white;
+  z-index:201;
+  transition:.3s;
+  padding:20px;
+  display:flex;
+  flex-direction:column;
+}
+
+.cart-drawer.show{
+  right:0;
+}
+
+.cart-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding-bottom:15px;
+  border-bottom:1px solid var(--border);
+}
+
+.close-cart{
+  background:#f0f3f1;
+  border-radius:50%;
+  width:35px;
+  height:35px;
+}
+
+.cart-items{
+  flex:1;
+  overflow-y:auto;
+  padding:15px 0;
+}
+
+.cart-item{
+  display:flex;
+  gap:12px;
+  padding:12px 0;
+  border-bottom:1px solid var(--border);
+}
+
+.cart-item-img{
+  width:60px;
+  height:60px;
+  border-radius:12px;
+  background:#f3f8f5;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:32px;
+}
+
+.cart-item-info{
+  flex:1;
+}
+
+.cart-item-name{
+  font-weight:bold;
+}
+
+.cart-item
+
+
+            
+
+            
+
+    
+    
