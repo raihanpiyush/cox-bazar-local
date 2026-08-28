@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+       <!DOCTYPE html>
 <html lang="bn">
 <head>
 <meta charset="UTF-8">
@@ -50,7 +50,8 @@ button{
   margin:auto;
 }
 
-/* TOP */
+/* TOP BAR */
+
 .top{
   background:var(--green);
   color:white;
@@ -61,6 +62,7 @@ button{
 }
 
 /* HEADER */
+
 header{
   background:white;
   position:sticky;
@@ -115,6 +117,7 @@ header{
 }
 
 /* SEARCH */
+
 .search-area{
   background:white;
   padding:12px 0;
@@ -143,6 +146,7 @@ header{
 }
 
 /* HERO */
+
 .hero{
   margin:25px 0;
   padding:45px;
@@ -199,6 +203,7 @@ header{
 }
 
 /* SECTION */
+
 .section{
   margin:35px 0;
 }
@@ -214,6 +219,7 @@ header{
 }
 
 /* CATEGORIES */
+
 .categories{
   display:flex;
   gap:12px;
@@ -255,6 +261,7 @@ header{
 }
 
 /* PRODUCTS */
+
 .products{
   display:grid;
   grid-template-columns:repeat(4,1fr);
@@ -331,6 +338,7 @@ header{
 }
 
 /* BENEFITS */
+
 .benefits{
   display:grid;
   grid-template-columns:repeat(3,1fr);
@@ -359,6 +367,7 @@ header{
 }
 
 /* FOOTER */
+
 footer{
   background:#13211a;
   color:white;
@@ -388,6 +397,7 @@ footer p{
 }
 
 /* CART */
+
 .overlay{
   position:fixed;
   inset:0;
@@ -525,7 +535,8 @@ footer p{
   margin-top:8px;
 }
 
-/* MODAL */
+/* CHECKOUT MODAL */
+
 .modal{
   position:fixed;
   inset:0;
@@ -592,6 +603,7 @@ footer p{
 }
 
 /* TOAST */
+
 .toast{
   position:fixed;
   left:50%;
@@ -612,10 +624,13 @@ footer p{
 }
 
 /* MOBILE */
+
 @media(max-width:900px){
+
   .products{
     grid-template-columns:repeat(3,1fr);
   }
+
 }
 
 @media(max-width:650px){
@@ -687,6 +702,7 @@ footer p{
   .footer-grid{
     grid-template-columns:1fr;
   }
+
 }
 </style>
 </head>
@@ -698,140 +714,224 @@ footer p{
 </div>
 
 <header>
-  <div class="container nav">
 
-    <div>
-      <div class="logo">Cox's <span>Local</span></div>
-      <div class="location">📍 Cox's Bazar</div>
+<div class="container nav">
+
+  <div>
+    <div class="logo">
+      Cox's <span>Local</span>
     </div>
 
-    <button class="cart-button" onclick="openCart()">
-      🛒 Cart
-      <span class="cart-number" id="cartNumber">0</span>
-    </button>
-
+    <div class="location">
+      📍 Cox's Bazar
+    </div>
   </div>
+
+  <button class="cart-button" onclick="openCart()">
+    🛒 Cart
+    <span class="cart-number" id="cartNumber">0</span>
+  </button>
+
+</div>
+
 </header>
 
 <div class="search-area">
-  <div class="container">
 
-    <div class="search">
-      <span>🔍</span>
+<div class="container">
 
-      <input
-        id="search"
-        type="search"
-        placeholder="চাল, ডিম, দুধ, পানি খুঁজুন..."
-        oninput="renderProducts()"
-      >
+  <div class="search">
 
-    </div>
+    <span>🔍</span>
+
+    <input
+      id="search"
+      type="search"
+      placeholder="চাল, ডিম, দুধ, পানি খুঁজুন..."
+      oninput="renderProducts()"
+    >
 
   </div>
+
+</div>
+
 </div>
 
 <main class="container">
 
 <section class="hero">
 
-  <div class="hero-content">
+<div class="hero-content">
 
-    <div class="hero-badge">
-      ⚡ Quick Delivery
-    </div>
-
-    <h1>
-      বাজার এখন<br>
-      আপনার হাতের মুঠোয়।
-    </h1>
-
-    <p>
-      Cox's Bazar শহরে প্রয়োজনীয় বাজার ও
-      নিত্যপ্রয়োজনীয় পণ্য সহজে অর্ডার করুন।
-    </p>
-
-    <button class="hero-btn" onclick="goProducts()">
-      🛍️ কেনাকাটা শুরু করুন
-    </button>
-
+  <div class="hero-badge">
+    ⚡ Quick Delivery
   </div>
+
+  <h1>
+    বাজার এখন<br>
+    আপনার হাতের মুঠোয়।
+  </h1>
+
+  <p>
+    Cox's Bazar শহরে প্রয়োজনীয় বাজার ও
+    নিত্যপ্রয়োজনীয় পণ্য সহজে অর্ডার করুন।
+  </p>
+
+  <button class="hero-btn" onclick="goProducts()">
+    🛍️ কেনাকাটা শুরু করুন
+  </button>
+
+</div>
 
 </section>
 
 <section class="section">
 
-  <h2>ক্যাটাগরি</h2>
-  <p class="subtitle">আপনার প্রয়োজনের পণ্য খুঁজে নিন</p>
+<h2>ক্যাটাগরি</h2>
 
-  <div class="categories">
+<p class="subtitle">
+  আপনার প্রয়োজনের পণ্য খুঁজে নিন
+</p>
 
-    <button class="category active" onclick="setCategory('সব',this)">
-      <div class="category-icon">🛒</div>
-      <div class="category-name">সব</div>
-    </button>
+<div class="categories">
 
-    <button class="category" onclick="setCategory('গ্রোসারি',this)">
-      <div class="category-icon">🥬</div>
-      <div class="category-name">গ্রোসারি</div>
-    </button>
+<button class="category active"
+onclick="setCategory('সব',this)">
 
-    <button class="category" onclick="setCategory('ফ্রেশ',this)">
-      <div class="category-icon">🍎</div>
-      <div class="category-name">ফ্রেশ</div>
-    </button>
+<div class="category-icon">🛒</div>
 
-    <button class="category" onclick="setCategory('পানীয়',this)">
-      <div class="category-icon">🥤</div>
-      <div class="category-name">পানীয়</div>
-    </button>
+<div class="category-name">
+সব
+</div>
 
-    <button class="category" onclick="setCategory('স্ন্যাকস',this)">
-      <div class="category-icon">🍪</div>
-      <div class="category-name">স্ন্যাকস</div>
-    </button>
+</button>
 
-    <button class="category" onclick="setCategory('পার্সোনাল',this)">
-      <div class="category-icon">🧴</div>
-      <div class="category-name">পার্সোনাল</div>
-    </button>
+<button class="category"
+onclick="setCategory('গ্রোসারি',this)">
 
-  </div>
+<div class="category-icon">🥬</div>
+
+<div class="category-name">
+গ্রোসারি
+</div>
+
+</button>
+
+<button class="category"
+onclick="setCategory('ফ্রেশ',this)">
+
+<div class="category-icon">🍎</div>
+
+<div class="category-name">
+ফ্রেশ
+</div>
+
+</button>
+
+<button class="category"
+onclick="setCategory('পানীয়',this)">
+
+<div class="category-icon">🥤</div>
+
+<div class="category-name">
+পানীয়
+</div>
+
+</button>
+
+<button class="category"
+onclick="setCategory('স্ন্যাকস',this)">
+
+<div class="category-icon">🍪</div>
+
+<div class="category-name">
+স্ন্যাকস
+</div>
+
+</button>
+
+<button class="category"
+onclick="setCategory('পার্সোনাল',this)">
+
+<div class="category-icon">🧴</div>
+
+<div class="category-name">
+পার্সোনাল
+</div>
+
+</button>
+
+</div>
 
 </section>
 
 <section class="section" id="productsSection">
 
-  <h2>জনপ্রিয় পণ্য</h2>
-  <p class="subtitle">আজকের প্রয়োজনীয় পণ্য</p>
+<h2>
+জনপ্রিয় পণ্য
+</h2>
 
-  <div class="products" id="products"></div>
+<p class="subtitle">
+আজকের প্রয়োজনীয় পণ্য
+</p>
+
+<div class="products" id="products"></div>
 
 </section>
 
 <section class="section">
 
-  <div class="benefits">
+<div class="benefits">
 
-    <div class="benefit">
-      <div class="benefit-icon">⚡</div>
-      <h3>দ্রুত ডেলিভারি</h3>
-      <p>আপনার এলাকায় দ্রুত পণ্য পৌঁছে দেওয়ার চেষ্টা করি।</p>
-    </div>
+<div class="benefit">
 
-    <div class="benefit">
-      <div class="benefit-icon">💚</div>
-      <h3>লোকাল ব্যবসা</h3>
-      <p>Cox's Bazar-এর স্থানীয় ব্যবসাকে অনলাইনে নিয়ে আসুন।</p>
-    </div>
+<div class="benefit-icon">
+⚡
+</div>
 
-    <div class="benefit">
-      <div class="benefit-icon">📱</div>
-      <h3>সহজ অর্ডার</h3>
-      <p>Cart থেকে কয়েকটি ধাপেই অর্ডার সম্পন্ন করুন।</p>
-    </div>
+<h3>
+দ্রুত ডেলিভারি
+</h3>
 
-  </div>
+<p>
+আপনার এলাকায় দ্রুত পণ্য পৌঁছে দেওয়ার চেষ্টা করি।
+</p>
+
+</div>
+
+<div class="benefit">
+
+<div class="benefit-icon">
+💚
+</div>
+
+<h3>
+লোকাল ব্যবসা
+</h3>
+
+<p>
+Cox's Bazar-এর স্থানীয় ব্যবসাকে অনলাইনে নিয়ে আসুন।
+</p>
+
+</div>
+
+<div class="benefit">
+
+<div class="benefit-icon">
+📱
+</div>
+
+<h3>
+সহজ অর্ডার
+</h3>
+
+<p>
+Cart থেকে কয়েকটি ধাপেই অর্ডার সম্পন্ন করুন।
+</p>
+
+</div>
+
+</div>
 
 </section>
 
@@ -839,738 +939,918 @@ footer p{
 
 <footer>
 
-  <div class="container">
+<div class="container">
 
-    <div class="footer-grid">
+<div class="footer-grid">
 
-      <div>
-        <h2>Cox's Local</h2>
-        <p>Cox's Bazar-এর মানুষের জন্য দ্রুত বাজার ডেলিভারি প্ল্যাটফর্ম।</p>
-        <p>📍 Cox's Bazar, Bangladesh</p>
-      </div>
+<div>
 
-      <div>
-        <h3>ক্যাটাগরি</h3>
-        <p>গ্রোসারি</p>
-        <p>ফ্রেশ</p>
-        <p>পানীয়</p>
-        <p>স্ন্যাকস</p>
-      </div>
+<h2>
+Cox's Local
+</h2>
 
-      <div>
-        <h3>যোগাযোগ</h3>
-        <p>📞 01XXXXXXXXX</p>
-        <p>📧 support@coxslocal.com</p>
-      </div>
+<p>
+Cox's Bazar-এর মানুষের জন্য দ্রুত বাজার ডেলিভারি প্ল্যাটফর্ম।
+</p>
 
-    </div>
+<p>
+📍 Cox's Bazar, Bangladesh
+</p>
 
-    <div class="footer-bottom">
-      © 2026 Cox's Local — All Rights Reserved
-    </div>
+</div>
 
-  </div>
+<div>
+
+<h3>
+ক্যাটাগরি
+</h3>
+
+<p>
+গ্রোসারি
+</p>
+
+<p>
+ফ্রেশ
+</p>
+
+<p>
+পানীয়
+</p>
+
+<p>
+স্ন্যাকস
+</p>
+
+</div>
+
+<div>
+
+<h3>
+যোগাযোগ
+</h3>
+
+<p>
+📞 01636322844
+</p>
+
+<p>
+📱 WhatsApp: 01636322844
+</p>
+
+</div>
+
+</div>
+
+<div class="footer-bottom">
+
+© 2026 Cox's Local — All Rights Reserved
+
+</div>
+
+</div>
 
 </footer>
 
-<!-- OVERLAY -->
+<!-- CART OVERLAY -->
 
-<div class="overlay" id="overlay" onclick="closeCart()"></div>
+<div
+class="overlay"
+id="overlay"
+onclick="closeCart()">
+</div>
 
 <!-- CART -->
 
-<div class="cart" id="cart">
+<div
+class="cart"
+id="cart">
 
-  <div class="cart-header">
-    <h2>🛒 আপনার Cart</h2>
-    <button class="close" onclick="closeCart()">×</button>
-  </div>
+<div class="cart-header">
 
-  <div class="cart-items" id="cartItems"></div>
+<h2>
+🛒 আপনার Cart
+</h2>
 
-  <div class="cart-footer">
+<button
+class="close"
+onclick="closeCart()">
+×
+</button>
 
-    <div class="delivery-line">
-      <span>Delivery</span>
-      <span id="delivery">৳60</span>
-    </div>
+</div>
 
-    <div class="total-line">
-      <span>মোট</span>
-      <span id="total">৳0</span>
-    </div>
+<div
+class="cart-items"
+id="cartItems">
+</div>
 
-    <button class="checkout" onclick="openCheckout()">
-      Checkout →
-    </button>
+<div class="cart-footer">
 
-  </div>
+<div class="delivery-line">
+
+<span>
+Delivery
+</span>
+
+<span id="delivery">
+৳60
+</span>
+
+</div>
+
+<div class="total-line">
+
+<span>
+মোট
+</span>
+
+<span id="total">
+৳0
+</span>
+
+</div>
+
+<button
+class="checkout"
+onclick="openCheckout()">
+
+Checkout →
+
+</button>
+
+</div>
 
 </div>
 
 <!-- CHECKOUT -->
 
-<div class="modal" id="checkoutModal">
+<div
+class="modal"
+id="checkoutModal">
 
-  <div class="modal-box">
+<div class="modal-box">
 
-    <div class="modal-title">
-      <h2>অর্ডার করুন</h2>
-      <button class="close" onclick="closeCheckout()">×</button>
-    </div>
+<div class="modal-title">
 
-    <div class="form">
-      <label>আপনার নাম *</label>
-      <input id="name" placeholder="আপনার নাম">
-    </div>
+<h2>
+অর্ডার করুন
+</h2>
 
-    <div class="form">
-      <label>মোবাইল নম্বর *</label>
-      <input id="phone" type="tel" placeholder="01XXXXXXXXX">
-    </div>
-
-    <div class="form">
-      <label>ডেলিভারি ঠিকানা *</label>
-      <textarea id="address" placeholder="বাসা/হোটেল/এলাকার ঠিকানা"></textarea>
-    </div>
-
-    <div class="form">
-      <label>পেমেন্ট</label>
-
-      <select id="payment">
-        <option>Cash on Delivery</option>
-        <option>bKash</option>
-        <option>Nagad</option>
-      </select>
-
-    </div>
-
-    <button class="confirm" onclick="placeOrder()">
-      📲 WhatsApp-এ অর্ডার পাঠান
-    </button>
-
-  </div>
+<button
+class="close"
+onclick="closeCheckout()">
+×
+</button>
 
 </div>
 
-<div class="toast" id="toast"></div>
+<div class="form">
+
+<label>
+আপনার নাম *
+</label>
+
+<input
+id="name"
+placeholder="আপনার নাম">
+
+</div>
+
+<div class="form">
+
+<label>
+মোবাইল নম্বর *
+</label>
+
+<input
+id="phone"
+type="tel"
+placeholder="01XXXXXXXXX">
+
+</div>
+
+<div class="form">
+
+<label>
+ডেলিভারি ঠিকানা *
+</label>
+
+<textarea
+id="address"
+placeholder="বাসা/হোটেল/এলাকার ঠিকানা">
+</textarea>
+
+</div>
+
+<div class="form">
+
+<label>
+পেমেন্ট
+</label>
+
+<select id="payment">
+
+<option>
+Cash on Delivery
+</option>
+
+<option>
+bKash
+</option>
+
+<option>
+Nagad
+</option>
+
+</select>
+
+</div>
+
+<button
+class="confirm"
+onclick="placeOrder()">
+
+📲 WhatsApp-এ অর্ডার পাঠান
+
+</button>
+
+</div>
+
+</div>
+
+<div
+class="toast"
+id="toast">
+</div>
 
 <script>
 
-/* =========================
-   PRODUCT DATABASE
-========================= */
+/* PRODUCT DATABASE */
 
 const products = [
 
-  {
-    id:1,
-    name:"মিনিকেট চাল",
-    unit:"৫ কেজি",
-    price:420,
-    category:"গ্রোসারি",
-    icon:"🍚",
-    tag:"জনপ্রিয়"
-  },
+{
+id:1,
+name:"মিনিকেট চাল",
+unit:"৫ কেজি",
+price:420,
+category:"গ্রোসারি",
+icon:"🍚",
+tag:"জনপ্রিয়"
+},
 
-  {
-    id:2,
-    name:"ফ্রেশ দুধ",
-    unit:"১ লিটার",
-    price:95,
-    category:"গ্রোসারি",
-    icon:"🥛",
-    tag:""
-  },
+{
+id:2,
+name:"ফ্রেশ দুধ",
+unit:"১ লিটার",
+price:95,
+category:"গ্রোসারি",
+icon:"🥛",
+tag:""
+},
 
-  {
-    id:3,
-    name:"ডিম",
-    unit:"১২ পিস",
-    price:150,
-    category:"গ্রোসারি",
-    icon:"🥚",
-    tag:""
-  },
+{
+id:3,
+name:"ডিম",
+unit:"১২ পিস",
+price:150,
+category:"গ্রোসারি",
+icon:"🥚",
+tag:""
+},
 
-  {
-    id:4,
-    name:"আলু",
-    unit:"১ কেজি",
-    price:45,
-    category:"ফ্রেশ",
-    icon:"🥔",
-    tag:"ফ্রেশ"
-  },
+{
+id:4,
+name:"আলু",
+unit:"১ কেজি",
+price:45,
+category:"ফ্রেশ",
+icon:"🥔",
+tag:"ফ্রেশ"
+},
 
-  {
-    id:5,
-    name:"আপেল",
-    unit:"১ কেজি",
-    price:280,
-    category:"ফ্রেশ",
-    icon:"🍎",
-    tag:""
-  },
+{
+id:5,
+name:"আপেল",
+unit:"১ কেজি",
+price:280,
+category:"ফ্রেশ",
+icon:"🍎",
+tag:""
+},
 
-  {
-    id:6,
-    name:"কলা",
-    unit:"১ ডজন",
-    price:90,
-    category:"ফ্রেশ",
-    icon:"🍌",
-    tag:""
-  },
+{
+id:6,
+name:"কলা",
+unit:"১ ডজন",
+price:90,
+category:"ফ্রেশ",
+icon:"🍌",
+tag:""
+},
 
-  {
-    id:7,
-    name:"মিনারেল পানি",
-    unit:"১.৫ লিটার",
-    price:30,
-    category:"পানীয়",
-    icon:"💧",
-    tag:""
-  },
+{
+id:7,
+name:"মিনারেল পানি",
+unit:"১.৫ লিটার",
+price:30,
+category:"পানীয়",
+icon:"💧",
+tag:""
+},
 
-  {
-    id:8,
-    name:"কোল্ড ড্রিংক",
-    unit:"১ বোতল",
-    price:60,
-    category:"পানীয়",
-    icon:"🥤",
-    tag:""
-  },
+{
+id:8,
+name:"কোল্ড ড্রিংক",
+unit:"১ বোতল",
+price:60,
+category:"পানীয়",
+icon:"🥤",
+tag:""
+},
 
-  {
-    id:9,
-    name:"আলুর চিপস",
-    unit:"১ প্যাকেট",
-    price:50,
-    category:"স্ন্যাকস",
-    icon:"🍟",
-    tag:"অফার"
-  },
+{
+id:9,
+name:"আলুর চিপস",
+unit:"১ প্যাকেট",
+price:50,
+category:"স্ন্যাকস",
+icon:"🍟",
+tag:"অফার"
+},
 
-  {
-    id:10,
-    name:"বিস্কুট",
-    unit:"১ প্যাকেট",
-    price:40,
-    category:"স্ন্যাকস",
-    icon:"🍪",
-    tag:""
-  },
+{
+id:10,
+name:"বিস্কুট",
+unit:"১ প্যাকেট",
+price:40,
+category:"স্ন্যাকস",
+icon:"🍪",
+tag:""
+},
 
-  {
-    id:11,
-    name:"শ্যাম্পু",
-    unit:"১ বোতল",
-    price:180,
-    category:"পার্সোনাল",
-    icon:"🧴",
-    tag:""
-  },
+{
+id:11,
+name:"শ্যাম্পু",
+unit:"১ বোতল",
+price:180,
+category:"পার্সোনাল",
+icon:"🧴",
+tag:""
+},
 
-  {
-    id:12,
-    name:"টুথপেস্ট",
-    unit:"১ প্যাক",
-    price:120,
-    category:"পার্সোনাল",
-    icon:"🪥",
-    tag:""
-  }
+{
+id:12,
+name:"টুথপেস্ট",
+unit:"১ প্যাক",
+price:120,
+category:"পার্সোনাল",
+icon:"🪥",
+tag:""
+}
 
 ];
 
 let cartData =
-  JSON.parse(localStorage.getItem("coxLocalCart")) || [];
+JSON.parse(
+localStorage.getItem("coxLocalCart")
+) || [];
 
 let currentCategory = "সব";
 
-/* =========================
-   PRODUCTS
-========================= */
+/* RENDER PRODUCTS */
 
 function renderProducts(){
 
-  const search =
-    document.getElementById("search")
-    .value
-    .toLowerCase()
-    .trim();
+const search =
+document.getElementById("search")
+.value
+.toLowerCase()
+.trim();
 
-  const filtered =
-    products.filter(product => {
+const filtered =
+products.filter(product => {
 
-      const categoryOK =
-        currentCategory === "সব" ||
-        product.category === currentCategory;
+const categoryOK =
+currentCategory === "সব" ||
+product.category === currentCategory;
 
-      const searchOK =
-        product.name.toLowerCase().includes(search);
+const searchOK =
+product.name
+.toLowerCase()
+.includes(search);
 
-      return categoryOK && searchOK;
+return categoryOK && searchOK;
 
-    });
+});
 
-  const box =
-    document.getElementById("products");
+const box =
+document.getElementById("products");
 
-  if(filtered.length === 0){
+if(filtered.length === 0){
 
-    box.innerHTML = `
-      <div style="
-        grid-column:1/-1;
-        text-align:center;
-        padding:50px;
-        color:#68746d;
-      ">
-        <div style="font-size:50px;">😔</div>
-        <p>কোনো পণ্য পাওয়া যায়নি</p>
-      </div>
-    `;
+box.innerHTML = `
 
-    return;
-  }
+<div style="
+grid-column:1/-1;
+text-align:center;
+padding:50px;
+color:#68746d;
+">
 
-  box.innerHTML =
-    filtered.map(product => `
+<div style="font-size:50px;">
+😔
+</div>
 
-      <div class="product">
+<p>
+কোনো পণ্য পাওয়া যায়নি
+</p>
 
-        ${
-          product.tag
-          ? `<div class="tag">${product.tag}</div>`
-          : ""
-        }
+</div>
 
-        <div class="product-image">
-          ${product.icon}
-        </div>
+`;
 
-        <h3>${product.name}</h3>
-
-        <div class="unit">
-          ${product.unit}
-        </div>
-
-        <div class="product-bottom">
-
-          <div class="price">
-            ৳${product.price}
-          </div>
-
-          <button
-            class="add"
-            onclick="addToCart(${product.id})"
-          >
-            + যোগ
-          </button>
-
-        </div>
-
-      </div>
-
-    `).join("");
+return;
 
 }
 
-/* =========================
-   CATEGORY
-========================= */
+box.innerHTML =
+filtered.map(product => `
+
+<div class="product">
+
+${
+product.tag
+? `<div class="tag">${product.tag}</div>`
+: ""
+}
+
+<div class="product-image">
+${product.icon}
+</div>
+
+<h3>
+${product.name}
+</h3>
+
+<div class="unit">
+${product.unit}
+</div>
+
+<div class="product-bottom">
+
+<div class="price">
+৳${product.price}
+</div>
+
+<button
+class="add"
+onclick="addToCart(${product.id})">
+
++ যোগ
+
+</button>
+
+</div>
+
+</div>
+
+`).join("");
+
+}
+
+/* CATEGORY */
 
 function setCategory(category,button){
 
-  currentCategory = category;
+currentCategory = category;
 
-  document
-    .querySelectorAll(".category")
-    .forEach(item =>
-      item.classList.remove("active")
-    );
+document
+.querySelectorAll(".category")
+.forEach(item =>
+item.classList.remove("active")
+);
 
-  button.classList.add("active");
+button.classList.add("active");
 
-  renderProducts();
+renderProducts();
 
 }
 
-/* =========================
-   CART
-========================= */
+/* ADD TO CART */
 
 function addToCart(id){
 
-  const existing =
-    cartData.find(item => item.id === id);
+const existing =
+cartData.find(item => item.id === id);
 
-  if(existing){
+if(existing){
 
-    existing.qty++;
+existing.qty++;
 
-  }else{
+}else{
 
-    const product =
-      products.find(item => item.id === id);
+const product =
+products.find(item => item.id === id);
 
-    cartData.push({
-      ...product,
-      qty:1
-    });
-
-  }
-
-  saveCart();
-  updateCart();
-
-  showToast("✅ Cart-এ যোগ হয়েছে");
+cartData.push({
+...product,
+qty:1
+});
 
 }
+
+saveCart();
+
+updateCart();
+
+showToast("✅ Cart-এ যোগ হয়েছে");
+
+}
+
+/* SAVE CART */
 
 function saveCart(){
 
-  localStorage.setItem(
-    "coxLocalCart",
-    JSON.stringify(cartData)
-  );
+localStorage.setItem(
+"coxLocalCart",
+JSON.stringify(cartData)
+);
 
 }
+
+/* UPDATE CART */
 
 function updateCart(){
 
-  const count =
-    cartData.reduce(
-      (sum,item) => sum + item.qty,
-      0
-    );
+const count =
+cartData.reduce(
+(sum,item) =>
+sum + item.qty,
+0
+);
 
-  document.getElementById("cartNumber")
-    .textContent = count;
+document
+.getElementById("cartNumber")
+.textContent = count;
 
-  const box =
-    document.getElementById("cartItems");
+const box =
+document.getElementById("cartItems");
 
-  if(cartData.length === 0){
+if(cartData.length === 0){
 
-    box.innerHTML = `
-      <div class="empty">
-        <div class="empty-icon">🛒</div>
-        <p>আপনার Cart খালি</p>
-      </div>
-    `;
+box.innerHTML = `
 
-    document.getElementById("total")
-      .textContent = "৳0";
+<div class="empty">
 
-    document.getElementById("delivery")
-      .textContent = "৳0";
+<div class="empty-icon">
+🛒
+</div>
 
-    return;
+<p>
+আপনার Cart খালি
+</p>
 
-  }
+</div>
 
-  let subtotal = 0;
+`;
 
-  box.innerHTML =
-    cartData.map(item => {
+document
+.getElementById("total")
+.textContent = "৳0";
 
-      subtotal +=
-        item.price * item.qty;
+document
+.getElementById("delivery")
+.textContent = "৳0";
 
-      return `
-
-        <div class="cart-item">
-
-          <div class="cart-img">
-            ${item.icon}
-          </div>
-
-          <div class="cart-info">
-
-            <div class="cart-name">
-              ${item.name}
-            </div>
-
-            <div class="cart-price">
-              ৳${item.price * item.qty}
-            </div>
-
-            <div class="quantity">
-
-              <button
-                onclick="changeQuantity(${item.id},-1)"
-              >
-                −
-              </button>
-
-              <strong>${item.qty}</strong>
-
-              <button
-                onclick="changeQuantity(${item.id},1)"
-              >
-                +
-              </button>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      `;
-
-    }).join("");
-
-  const delivery =
-    subtotal >= 500 ? 0 : 60;
-
-  const total =
-    subtotal + delivery;
-
-  document.getElementById("delivery")
-    .textContent =
-      delivery === 0
-      ? "FREE"
-      : "৳" + delivery;
-
-  document.getElementById("total")
-    .textContent =
-      "৳" + total;
+return;
 
 }
+
+let subtotal = 0;
+
+box.innerHTML =
+cartData.map(item => {
+
+subtotal +=
+item.price * item.qty;
+
+return `
+
+<div class="cart-item">
+
+<div class="cart-img">
+${item.icon}
+</div>
+
+<div class="cart-info">
+
+<div class="cart-name">
+${item.name}
+</div>
+
+<div class="cart-price">
+৳${item.price * item.qty}
+</div>
+
+<div class="quantity">
+
+<button
+onclick="changeQuantity(${item.id},-1)">
+−
+</button>
+
+<strong>
+${item.qty}
+</strong>
+
+<button
+onclick="changeQuantity(${item.id},1)">
++
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+`;
+
+}).join("");
+
+const delivery =
+subtotal >= 500 ? 0 : 60;
+
+const total =
+subtotal + delivery;
+
+document
+.getElementById("delivery")
+.textContent =
+delivery === 0
+? "FREE"
+: "৳" + delivery;
+
+document
+.getElementById("total")
+.textContent =
+"৳" + total;
+
+}
+
+/* CHANGE QUANTITY */
 
 function changeQuantity(id,change){
 
-  const item =
-    cartData.find(item => item.id === id);
+const item =
+cartData.find(item => item.id === id);
 
-  if(!item) return;
+if(!item) return;
 
-  item.qty += change;
+item.qty += change;
 
-  if(item.qty <= 0){
+if(item.qty <= 0){
 
-    cartData =
-      cartData.filter(
-        item => item.id !== id
-      );
-
-  }
-
-  saveCart();
-  updateCart();
+cartData =
+cartData.filter(
+item => item.id !== id
+);
 
 }
 
-/* =========================
-   CART OPEN/CLOSE
-========================= */
+saveCart();
+
+updateCart();
+
+}
+
+/* OPEN CART */
 
 function openCart(){
 
-  document
-    .getElementById("cart")
-    .classList.add("show");
+document
+.getElementById("cart")
+.classList.add("show");
 
-  document
-    .getElementById("overlay")
-    .classList.add("show");
+document
+.getElementById("overlay")
+.classList.add("show");
 
 }
+
+/* CLOSE CART */
 
 function closeCart(){
 
-  document
-    .getElementById("cart")
-    .classList.remove("show");
+document
+.getElementById("cart")
+.classList.remove("show");
 
-  document
-    .getElementById("overlay")
-    .classList.remove("show");
+document
+.getElementById("overlay")
+.classList.remove("show");
 
 }
 
-/* =========================
-   CHECKOUT
-========================= */
+/* CHECKOUT */
 
 function openCheckout(){
 
-  if(cartData.length === 0){
+if(cartData.length === 0){
 
-    showToast("🛒 আগে Cart-এ পণ্য যোগ করুন");
+showToast(
+"🛒 আগে Cart-এ পণ্য যোগ করুন"
+);
 
-    return;
+return;
 
-  }
+}
 
-  document
-    .getElementById("checkoutModal")
-    .classList.add("show");
+document
+.getElementById("checkoutModal")
+.classList.add("show");
 
 }
 
 function closeCheckout(){
 
-  document
-    .getElementById("checkoutModal")
-    .classList.remove("show");
+document
+.getElementById("checkoutModal")
+.classList.remove("show");
 
 }
 
-/* =========================
-   PLACE ORDER
-========================= */
+/* PLACE ORDER */
 
 function placeOrder(){
 
-  const name =
-    document.getElementById("name")
-    .value.trim();
+const name =
+document
+.getElementById("name")
+.value
+.trim();
 
-  const phone =
-    document.getElementById("phone")
-    .value.trim();
+const phone =
+document
+.getElementById("phone")
+.value
+.trim();
 
-  const address =
-    document.getElementById("address")
-    .value.trim();
+const address =
+document
+.getElementById("address")
+.value
+.trim();
 
-  const payment =
-    document.getElementById("payment")
-    .value;
+const payment =
+document
+.getElementById("payment")
+.value;
 
-  if(!name || !phone || !address){
+if(!name || !phone || !address){
 
-    alert("দয়া করে নাম, মোবাইল ও ঠিকানা পূরণ করুন।");
+alert(
+"দয়া করে নাম, মোবাইল ও ঠিকানা পূরণ করুন।"
+);
 
-    return;
-
-  }
-
-  let subtotal = 0;
-
-  let orderText = "";
-
-  cartData.forEach(item => {
-
-    const itemTotal =
-      item.price * item.qty;
-
-    subtotal += itemTotal;
-
-    orderText +=
-      "• " +
-      item.name +
-      " × " +
-      item.qty +
-      " = ৳" +
-      itemTotal +
-      "%0A";
-
-  });
-
-  const delivery =
-    subtotal >= 500 ? 0 : 60;
-
-  const total =
-    subtotal + delivery;
-
-  /*
-    IMPORTANT:
-    এখানে নিজের WhatsApp নম্বর বসাও।
-    উদাহরণ:
-    8801636322844
-  */
-
-  const whatsappNumber =
-    "8801636322844";
-
-  const message =
-    "🛒 *নতুন Cox's Local অর্ডার*%0A%0A" +
-
-    "👤 নাম: " +
-    encodeURIComponent(name) +
-    "%0A" +
-
-    "📱 মোবাইল: " +
-    encodeURIComponent(phone) +
-    "%0A" +
-
-    "📍 ঠিকানা: " +
-    encodeURIComponent(address) +
-    "%0A%0A" +
-
-    "📦 *পণ্য:*%0A" +
-
-    orderText +
-
-    "%0A" +
-
-    "🛵 Delivery: " +
-    (delivery === 0
-      ? "FREE"
-      : "৳" + delivery) +
-
-    "%0A" +
-
-    "💰 *মোট: ৳" +
-    total +
-    "*%0A" +
-
-    "💳 পেমেন্ট: " +
-    encodeURIComponent(payment);
-
-  const url =
-    "https://wa.me/" +
-    whatsappNumber +
-    "?text=" +
-    message;
-
-  window.open(url,"_blank");
+return;
 
 }
 
-/* =========================
-   HELPERS
-========================= */
+let subtotal = 0;
+
+let orderText = "";
+
+cartData.forEach(item => {
+
+const itemTotal =
+item.price * item.qty;
+
+subtotal += itemTotal;
+
+orderText +=
+"• " +
+item.name +
+" × " +
+item.qty +
+" = ৳" +
+itemTotal +
+"%0A";
+
+});
+
+const delivery =
+subtotal >= 500
+? 0
+: 60;
+
+const total =
+subtotal + delivery;
+
+/*
+=================================
+COX'S LOCAL WHATSAPP NUMBER
+=================================
+01636322844
+International format:
+8801636322844
+*/
+
+const whatsappNumber =
+"8801636322844";
+
+const message =
+"🛒 *নতুন Cox's Local অর্ডার*%0A%0A" +
+
+"👤 নাম: " +
+encodeURIComponent(name) +
+"%0A" +
+
+"📱 মোবাইল: " +
+encodeURIComponent(phone) +
+"%0A" +
+
+"📍 ঠিকানা: " +
+encodeURIComponent(address) +
+"%0A%0A" +
+
+"📦 *পণ্য:*%0A" +
+
+orderText +
+
+"%0A" +
+
+"🛵 Delivery: " +
+(
+delivery === 0
+? "FREE"
+: "৳" + delivery
+) +
+
+"%0A" +
+
+"💰 *মোট: ৳" +
+total +
+"*%0A" +
+
+"💳 পেমেন্ট: " +
+encodeURIComponent(payment);
+
+const url =
+"https://wa.me/" +
+whatsappNumber +
+"?text=" +
+message;
+
+window.open(
+url,
+"_blank"
+);
+
+}
+
+/* SCROLL */
 
 function goProducts(){
 
-  document
-    .getElementById("productsSection")
-    .scrollIntoView({
-      behavior:"smooth"
-    });
+document
+.getElementById("productsSection")
+.scrollIntoView({
+behavior:"smooth"
+});
 
 }
 
+/* TOAST */
+
 function showToast(message){
 
-  const toast =
-    document.getElementById("toast");
+const toast =
+document.getElementById("toast");
 
-  toast.textContent = message;
+toast.textContent =
+message;
 
-  toast.classList.add("show");
+toast.classList.add("show");
 
-  setTimeout(() => {
+setTimeout(() => {
 
-    toast.classList.remove("show");
+toast.classList.remove("show");
 
-  },2000);
+},2000);
 
 }
 
 /* START */
 
 renderProducts();
+
 updateCart();
 
 </script>
 
 </body>
 </html>
+
+  
