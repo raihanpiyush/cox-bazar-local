@@ -1,24 +1,23 @@
-
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="bn">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Cox's Local — Cox's Bazar শহরে দ্রুত বাজার ও নিত্যপ্রয়োজনীয় পণ্য ডেলিভারি।">
+<meta name="description" content="Cox's Local - Cox's Bazar শহরে দ্রুত বাজার ও নিত্যপ্রয়োজনীয় পণ্য ডেলিভারি।">
 <title>Cox's Local — Quick Delivery</title>
 
 <style>
 :root{
   --green:#079455;
   --green-dark:#056b3d;
-  --light-green:#eaf8f1;
+  --green-light:#eaf8f1;
   --orange:#ff7a18;
   --dark:#17221c;
-  --gray:#6b756f;
+  --gray:#69756e;
   --bg:#f7faf8;
-  --white:#fff;
-  --border:#e5ebe7;
-  --shadow:0 8px 25px rgba(0,0,0,.07);
+  --white:#ffffff;
+  --border:#e4ebe7;
+  --shadow:0 8px 25px rgba(0,0,0,.08);
   --radius:18px;
 }
 
@@ -26,6 +25,10 @@
   box-sizing:border-box;
   margin:0;
   padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
 }
 
 body{
@@ -44,9 +47,9 @@ button{
   cursor:pointer;
 }
 
-a{
-  text-decoration:none;
-  color:inherit;
+.container{
+  width:min(1150px,92%);
+  margin:auto;
 }
 
 /* TOP BAR */
@@ -56,6 +59,7 @@ a{
   text-align:center;
   padding:9px 12px;
   font-size:14px;
+  font-weight:bold;
 }
 
 /* HEADER */
@@ -63,24 +67,23 @@ header{
   background:white;
   position:sticky;
   top:0;
-  z-index:100;
-  border-bottom:1px solid var(--border);
+  z-index:50;
+  box-shadow:0 2px 12px rgba(0,0,0,.06);
 }
 
 .nav{
-  max-width:1200px;
-  margin:auto;
-  padding:14px 18px;
+  min-height:75px;
   display:flex;
   align-items:center;
-  gap:18px;
+  justify-content:space-between;
+  gap:15px;
 }
 
 .logo{
-  font-size:25px;
+  font-size:24px;
   font-weight:900;
+  color:var(--green-dark);
   white-space:nowrap;
-  color:var(--green);
 }
 
 .logo span{
@@ -88,102 +91,80 @@ header{
 }
 
 .location{
-  font-size:12px;
+  font-size:13px;
   color:var(--gray);
-  white-space:nowrap;
-}
-
-.location b{
-  display:block;
-  color:var(--dark);
-  font-size:14px;
-}
-
-.search{
-  flex:1;
-  position:relative;
-}
-
-.search input{
-  width:100%;
-  padding:13px 16px 13px 44px;
-  border:1px solid var(--border);
-  background:#f5f8f6;
-  border-radius:14px;
-  outline:none;
-}
-
-.search input:focus{
-  border-color:var(--green);
-  background:white;
-}
-
-.search-icon{
-  position:absolute;
-  left:15px;
-  top:10px;
-  font-size:20px;
 }
 
 .cart-btn{
   background:var(--dark);
   color:white;
+  padding:11px 18px;
   border-radius:14px;
-  padding:12px 16px;
+  font-weight:bold;
   display:flex;
   align-items:center;
   gap:8px;
-  font-weight:bold;
 }
 
 .cart-count{
   background:var(--orange);
-  padding:2px 8px;
-  border-radius:20px;
-  font-size:13px;
+  width:25px;
+  height:25px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
-/* CONTAINER */
-.container{
-  max-width:1200px;
-  margin:auto;
-  padding:0 18px;
+/* SEARCH */
+.search-area{
+  background:white;
+  padding:15px 0;
+  border-bottom:1px solid var(--border);
+}
+
+.search-box{
+  background:#f4f7f5;
+  border:1px solid var(--border);
+  border-radius:15px;
+  display:flex;
+  align-items:center;
+  padding:0 15px;
+}
+
+.search-box span{
+  font-size:23px;
+}
+
+.search-box input{
+  width:100%;
+  border:0;
+  outline:0;
+  background:transparent;
+  padding:15px 12px;
+  font-size:16px;
 }
 
 /* HERO */
 .hero{
-  margin:24px auto;
-  background:linear-gradient(120deg,#064d32,#079455);
-  border-radius:25px;
+  margin:28px 0;
+  background:linear-gradient(135deg,#075f3b,#079455,#12a967);
   color:white;
-  padding:38px;
-  min-height:320px;
+  border-radius:28px;
+  padding:42px;
   position:relative;
   overflow:hidden;
-  display:flex;
-  align-items:center;
-}
-
-.hero:before{
-  content:"";
-  position:absolute;
-  width:350px;
-  height:350px;
-  border-radius:50%;
-  right:-80px;
-  top:-120px;
-  background:rgba(255,255,255,.08);
 }
 
 .hero:after{
   content:"";
   position:absolute;
-  width:250px;
-  height:250px;
+  width:300px;
+  height:300px;
   border-radius:50%;
-  right:100px;
-  bottom:-170px;
-  background:rgba(255,255,255,.06);
+  background:rgba(255,255,255,.08);
+  right:-80px;
+  top:-80px;
 }
 
 .hero-content{
@@ -192,24 +173,24 @@ header{
   max-width:650px;
 }
 
-.pill{
+.badge{
   display:inline-block;
   background:rgba(255,255,255,.15);
-  padding:7px 14px;
+  padding:8px 15px;
   border-radius:30px;
   margin-bottom:15px;
 }
 
 .hero h1{
-  font-size:clamp(32px,5vw,55px);
-  line-height:1.08;
-  margin-bottom:15px;
+  font-size:clamp(34px,6vw,58px);
+  line-height:1.15;
+  margin-bottom:14px;
 }
 
 .hero p{
-  color:#e1f5eb;
   font-size:18px;
-  margin-bottom:23px;
+  opacity:.92;
+  margin-bottom:25px;
 }
 
 .hero-buttons{
@@ -218,48 +199,43 @@ header{
   flex-wrap:wrap;
 }
 
-.primary{
+.primary-btn{
   background:white;
   color:var(--green-dark);
-  padding:14px 22px;
+  padding:14px 23px;
   border-radius:13px;
-  font-weight:800;
+  font-weight:bold;
 }
 
-.secondary{
-  background:rgba(255,255,255,.13);
+.secondary-btn{
+  background:rgba(255,255,255,.14);
   color:white;
-  padding:14px 22px;
+  padding:14px 23px;
   border-radius:13px;
   font-weight:bold;
 }
 
 /* SECTION */
 .section{
-  margin:30px 0;
+  margin:38px 0;
 }
 
 .section-title{
-  font-size:27px;
-  font-weight:900;
+  font-size:28px;
   margin-bottom:5px;
 }
 
 .section-subtitle{
   color:var(--gray);
-  margin-bottom:18px;
+  margin-bottom:20px;
 }
 
 /* CATEGORIES */
 .categories{
   display:flex;
-  gap:13px;
+  gap:14px;
   overflow-x:auto;
   padding-bottom:8px;
-}
-
-.categories::-webkit-scrollbar{
-  display:none;
 }
 
 .category{
@@ -267,19 +243,19 @@ header{
   background:white;
   border:1px solid var(--border);
   border-radius:18px;
-  padding:18px 10px;
+  padding:18px 12px;
   text-align:center;
+  box-shadow:0 4px 15px rgba(0,0,0,.04);
   transition:.2s;
 }
 
 .category:hover{
   transform:translateY(-3px);
-  box-shadow:var(--shadow);
 }
 
 .category.active{
-  background:var(--light-green);
-  border-color:#a9ddc4;
+  background:var(--green-light);
+  border-color:#9ed9bd;
 }
 
 .category-icon{
@@ -288,21 +264,22 @@ header{
 }
 
 .category-name{
-  font-weight:800;
+  font-weight:bold;
 }
 
 /* PRODUCTS */
 .products{
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  gap:17px;
+  gap:18px;
 }
 
 .product{
   background:white;
   border:1px solid var(--border);
   border-radius:18px;
-  overflow:hidden;
+  padding:13px;
+  box-shadow:0 4px 15px rgba(0,0,0,.04);
   transition:.2s;
   position:relative;
 }
@@ -312,66 +289,57 @@ header{
   box-shadow:var(--shadow);
 }
 
-.product-image{
-  height:175px;
+.product-img{
+  height:170px;
+  border-radius:14px;
+  background:#f2f7f4;
   display:flex;
   align-items:center;
   justify-content:center;
-  background:#f3f8f5;
-  font-size:78px;
+  font-size:80px;
+  margin-bottom:12px;
 }
 
-.discount{
+.product-tag{
   position:absolute;
-  top:10px;
-  left:10px;
+  top:22px;
+  left:22px;
   background:var(--orange);
   color:white;
-  padding:4px 8px;
-  border-radius:7px;
   font-size:11px;
   font-weight:bold;
+  padding:4px 8px;
+  border-radius:6px;
 }
 
-.product-info{
-  padding:14px;
-}
-
-.product-name{
+.product h3{
   font-size:17px;
-  font-weight:800;
-  margin-bottom:4px;
+  margin-bottom:5px;
 }
 
-.product-size{
-  font-size:13px;
+.product-unit{
   color:var(--gray);
-  margin-bottom:10px;
+  font-size:13px;
 }
 
-.price-row{
+.product-bottom{
   display:flex;
-  align-items:center;
   justify-content:space-between;
+  align-items:center;
+  gap:8px;
+  margin-top:12px;
 }
 
 .price{
-  font-size:19px;
   font-weight:900;
-}
-
-.old-price{
-  font-size:12px;
-  color:#999;
-  text-decoration:line-through;
-  margin-left:5px;
+  font-size:18px;
 }
 
 .add-btn{
   background:var(--green);
   color:white;
   padding:8px 14px;
-  border-radius:10px;
+  border-radius:9px;
   font-weight:bold;
 }
 
@@ -379,73 +347,73 @@ header{
   background:var(--green-dark);
 }
 
-/* WHY US */
-.features{
+/* INFO CARDS */
+.info-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:16px;
+  gap:15px;
 }
 
-.feature{
+.info-card{
   background:white;
   border:1px solid var(--border);
   padding:22px;
   border-radius:18px;
 }
 
-.feature-icon{
-  font-size:35px;
+.info-icon{
+  font-size:30px;
   margin-bottom:8px;
 }
 
-.feature h3{
+.info-card h3{
   margin-bottom:5px;
 }
 
-.feature p{
+.info-card p{
   color:var(--gray);
   font-size:14px;
 }
 
 /* FOOTER */
 footer{
-  background:var(--dark);
+  background:#13221b;
   color:white;
-  margin-top:45px;
-  padding:35px 18px;
+  margin-top:50px;
+  padding:45px 0 20px;
 }
 
-.footer-inner{
-  max-width:1200px;
-  margin:auto;
+.footer-grid{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  gap:35px;
 }
 
-.footer-logo{
-  font-size:25px;
-  font-weight:900;
-  color:white;
+footer h2{
+  margin-bottom:12px;
+}
+
+footer p{
+  color:#b7c1bb;
+  font-size:14px;
   margin-bottom:8px;
 }
 
-.footer-text{
-  color:#b8c3bd;
-  max-width:500px;
-  margin-bottom:20px;
-}
-
 .footer-bottom{
-  border-top:1px solid #354039;
+  border-top:1px solid #35433c;
+  margin-top:30px;
   padding-top:18px;
+  text-align:center;
   color:#9ca8a1;
   font-size:13px;
 }
 
-/* CART DRAWER */
+/* CART OVERLAY */
 .overlay{
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.45);
-  z-index:200;
+  background:rgba(0,0,0,.5);
+  z-index:100;
   display:none;
 }
 
@@ -453,17 +421,17 @@ footer{
   display:block;
 }
 
+/* CART */
 .cart-drawer{
   position:fixed;
-  right:-420px;
+  right:-430px;
   top:0;
-  width:390px;
-  max-width:92%;
+  width:410px;
+  max-width:94%;
   height:100%;
   background:white;
-  z-index:201;
+  z-index:101;
   transition:.3s;
-  padding:20px;
   display:flex;
   flex-direction:column;
 }
@@ -476,39 +444,55 @@ footer{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  padding-bottom:15px;
+  padding:20px;
   border-bottom:1px solid var(--border);
 }
 
+.cart-header h2{
+  font-size:21px;
+}
+
 .close-cart{
-  background:#f0f3f1;
+  width:36px;
+  height:36px;
   border-radius:50%;
-  width:35px;
-  height:35px;
+  background:#eef2ef;
+  font-size:20px;
 }
 
 .cart-items{
   flex:1;
   overflow-y:auto;
-  padding:15px 0;
+  padding:10px 20px;
+}
+
+.empty-cart{
+  text-align:center;
+  padding:70px 20px;
+  color:var(--gray);
+}
+
+.empty-cart div{
+  font-size:55px;
+  margin-bottom:10px;
 }
 
 .cart-item{
   display:flex;
   gap:12px;
-  padding:12px 0;
+  padding:15px 0;
   border-bottom:1px solid var(--border);
 }
 
 .cart-item-img{
-  width:60px;
-  height:60px;
+  width:65px;
+  height:65px;
+  background:#f1f7f3;
   border-radius:12px;
-  background:#f3f8f5;
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:32px;
+  font-size:34px;
 }
 
 .cart-item-info{
@@ -519,12 +503,952 @@ footer{
   font-weight:bold;
 }
 
-.cart-item
+.cart-item-price{
+  color:var(--green-dark);
+  font-weight:bold;
+  margin-top:3px;
+}
 
+.qty{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-top:7px;
+}
 
-            
+.qty button{
+  width:27px;
+  height:27px;
+  border-radius:7px;
+  background:#eaf2ed;
+  font-weight:bold;
+}
 
-            
+.cart-footer{
+  padding:20px;
+  border-top:1px solid var(--border);
+  background:#fff;
+}
 
-    
-    
+.total-row{
+  display:flex;
+  justify-content:space-between;
+  font-size:19px;
+  font-weight:900;
+  margin-bottom:15px;
+}
+
+.checkout-btn{
+  width:100%;
+  background:var(--green);
+  color:white;
+  padding:15px;
+  border-radius:12px;
+  font-weight:bold;
+  font-size:16px;
+}
+
+/* CHECKOUT MODAL */
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.55);
+  z-index:150;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:15px;
+}
+
+.modal.show{
+  display:flex;
+}
+
+.modal-box{
+  width:min(500px,100%);
+  background:white;
+  border-radius:20px;
+  padding:25px;
+  max-height:90vh;
+  overflow-y:auto;
+}
+
+.modal-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:20px;
+}
+
+.modal-head button{
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  background:#edf1ee;
+}
+
+.form-group{
+  margin-bottom:15px;
+}
+
+.form-group label{
+  display:block;
+  font-weight:bold;
+  margin-bottom:6px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select{
+  width:100%;
+  border:1px solid #dce5df;
+  border-radius:10px;
+  padding:12px;
+  outline:none;
+}
+
+.form-group textarea{
+  min-height:80px;
+  resize:vertical;
+}
+
+.order-btn{
+  width:100%;
+  background:var(--orange);
+  color:white;
+  padding:14px;
+  border-radius:11px;
+  font-weight:bold;
+}
+
+/* TOAST */
+.toast{
+  position:fixed;
+  left:50%;
+  bottom:25px;
+  transform:translateX(-50%) translateY(100px);
+  background:#17221c;
+  color:white;
+  padding:12px 20px;
+  border-radius:10px;
+  z-index:300;
+  transition:.3s;
+  opacity:0;
+}
+
+.toast.show{
+  transform:translateX(-50%) translateY(0);
+  opacity:1;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .products{
+    grid-template-columns:repeat(3,1fr);
+  }
+}
+
+@media(max-width:650px){
+  .nav{
+    min-height:65px;
+  }
+
+  .logo{
+    font-size:19px;
+  }
+
+  .location{
+    display:none;
+  }
+
+  .cart-btn{
+    padding:9px 12px;
+  }
+
+  .hero{
+    padding:30px 22px;
+    border-radius:22px;
+  }
+
+  .hero h1{
+    font-size:36px;
+  }
+
+  .hero p{
+    font-size:15px;
+  }
+
+  .products{
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+  }
+
+  .product{
+    padding:10px;
+  }
+
+  .product-img{
+    height:135px;
+    font-size:62px;
+  }
+
+  .product h3{
+    font-size:15px;
+  }
+
+  .price{
+    font-size:16px;
+  }
+
+  .add-btn{
+    padding:7px 10px;
+    font-size:13px;
+  }
+
+  .info-grid{
+    grid-template-columns:1fr;
+  }
+
+  .footer-grid{
+    grid-template-columns:1fr;
+    gap:20px;
+  }
+}
+
+@media(max-width:380px){
+  .logo{
+    font-size:17px;
+  }
+
+  .cart-btn{
+    font-size:13px;
+  }
+
+  .products{
+    gap:8px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+🚚 Cox's Bazar শহরে দ্রুত ডেলিভারি • আজকের অর্ডারে বিশেষ অফার
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="container nav">
+
+    <div>
+      <div class="logo">Cox's <span>Local</span></div>
+      <div class="location">📍 Cox's Bazar</div>
+    </div>
+
+    <button class="cart-btn" onclick="openCart()">
+      🛒 Cart
+      <span class="cart-count" id="cartCount">0</span>
+    </button>
+
+  </div>
+</header>
+
+<!-- SEARCH -->
+<div class="search-area">
+  <div class="container">
+    <div class="search-box">
+      <span>🔍</span>
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="আপনি কী খুঁজছেন? যেমন চাল, দুধ, পানি..."
+        oninput="searchProducts()"
+      >
+    </div>
+  </div>
+</div>
+
+<main class="container">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+
+    <div class="badge">⚡ দ্রুত বাজার ডেলিভারি</div>
+
+    <h1>
+      আপনার দরকার,<br>
+      আমরা পৌঁছে দেব!
+    </h1>
+
+    <p>
+      দৈনন্দিন বাজার, খাবার ও প্রয়োজনীয় পণ্য—
+      এক জায়গা থেকে অর্ডার করুন।
+    </p>
+
+    <div class="hero-buttons">
+      <button class="primary-btn" onclick="document.getElementById('products').scrollIntoView()">
+        এখনই কেনাকাটা করুন
+      </button>
+
+      <button class="secondary-btn" onclick="showService()">
+        আমাদের সার্ভিস এলাকা
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section class="section">
+  <h2 class="section-title">ক্যাটাগরি</h2>
+  <p class="section-subtitle">আপনার পছন্দের বিভাগ বেছে নিন</p>
+
+  <div class="categories">
+
+    <button class="category active" onclick="filterCategory('সব',this)">
+      <div class="category-icon">🛒</div>
+      <div class="category-name">সব</div>
+    </button>
+
+    <button class="category" onclick="filterCategory('গ্রোসারি',this)">
+      <div class="category-icon">🥬</div>
+      <div class="category-name">গ্রোসারি</div>
+    </button>
+
+    <button class="category" onclick="filterCategory('পানীয়',this)">
+      <div class="category-icon">🥤</div>
+      <div class="category-name">পানীয়</div>
+    </button>
+
+    <button class="category" onclick="filterCategory('স্ন্যাকস',this)">
+      <div class="category-icon">🍪</div>
+      <div class="category-name">স্ন্যাকস</div>
+    </button>
+
+    <button class="category" onclick="filterCategory('ব্যক্তিগত',this)">
+      <div class="category-icon">🧴</div>
+      <div class="category-name">পার্সোনাল</div>
+    </button>
+
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="section" id="products">
+
+  <h2 class="section-title">জনপ্রিয় পণ্য</h2>
+  <p class="section-subtitle">আজকের প্রয়োজনীয় পণ্য</p>
+
+  <div class="products" id="productGrid"></div>
+
+</section>
+
+<!-- SERVICE -->
+<section class="section">
+
+  <div class="info-grid">
+
+    <div class="info-card">
+      <div class="info-icon">⚡</div>
+      <h3>দ্রুত ডেলিভারি</h3>
+      <p>আপনার এলাকার মধ্যে দ্রুত পণ্য পৌঁছে দেওয়ার চেষ্টা করি।</p>
+    </div>
+
+    <div class="info-card">
+      <div class="info-icon">🛍️</div>
+      <h3>দৈনন্দিন পণ্য</h3>
+      <p>বাজারের প্রয়োজনীয় বিভিন্ন পণ্য এক জায়গায়।</p>
+    </div>
+
+    <div class="info-card">
+      <div class="info-icon">📞</div>
+      <h3>সহজ অর্ডার</h3>
+      <p>ওয়েবসাইট থেকে পছন্দের পণ্য নির্বাচন করে অর্ডার করুন।</p>
+    </div>
+
+  </div>
+
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+
+  <div class="container">
+
+    <div class="footer-grid">
+
+      <div>
+        <h2>Cox's Local</h2>
+        <p>
+          Cox's Bazar-এর মানুষের জন্য স্থানীয়
+          দ্রুত ডেলিভারি সার্ভিস।
+        </p>
+        <p>📍 Cox's Bazar, Bangladesh</p>
+      </div>
+
+      <div>
+        <h3>সেবা</h3>
+        <p>দ্রুত ডেলিভারি</p>
+        <p>গ্রোসারি</p>
+        <p>পানীয়</p>
+        <p>স্ন্যাকস</p>
+      </div>
+
+      <div>
+        <h3>যোগাযোগ</h3>
+        <p>📞 01XXXXXXXXX</p>
+        <p>📧 support@coxslocal.com</p>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      © 2026 Cox's Local — All Rights Reserved
+    </div>
+
+  </div>
+
+</footer>
+
+<!-- CART OVERLAY -->
+<div class="overlay" id="overlay" onclick="closeCart()"></div>
+
+<!-- CART DRAWER -->
+<div class="cart-drawer" id="cartDrawer">
+
+  <div class="cart-header">
+    <h2>🛒 আপনার Cart</h2>
+    <button class="close-cart" onclick="closeCart()">×</button>
+  </div>
+
+  <div class="cart-items" id="cartItems"></div>
+
+  <div class="cart-footer">
+
+    <div class="total-row">
+      <span>মোট</span>
+      <span id="cartTotal">৳0</span>
+    </div>
+
+    <button class="checkout-btn" onclick="openCheckout()">
+      Checkout করুন
+    </button>
+
+  </div>
+
+</div>
+
+<!-- CHECKOUT MODAL -->
+<div class="modal" id="checkoutModal">
+
+  <div class="modal-box">
+
+    <div class="modal-head">
+      <h2>অর্ডার সম্পন্ন করুন</h2>
+      <button onclick="closeCheckout()">×</button>
+    </div>
+
+    <div class="form-group">
+      <label>আপনার নাম</label>
+      <input type="text" id="customerName" placeholder="নাম লিখুন">
+    </div>
+
+    <div class="form-group">
+      <label>মোবাইল নম্বর</label>
+      <input type="tel" id="customerPhone" placeholder="01XXXXXXXXX">
+    </div>
+
+    <div class="form-group">
+      <label>ডেলিভারি ঠিকানা</label>
+      <textarea id="customerAddress" placeholder="আপনার সম্পূর্ণ ঠিকানা লিখুন"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label>পেমেন্ট</label>
+      <select id="payment">
+        <option>Cash on Delivery</option>
+        <option>বিকাশ</option>
+        <option>নগদ</option>
+      </select>
+    </div>
+
+    <button class="order-btn" onclick="placeOrder()">
+      অর্ডার কনফার্ম করুন
+    </button>
+
+  </div>
+
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+
+const products = [
+
+  {
+    id:1,
+    name:"মিনিকেট চাল",
+    unit:"৫ কেজি",
+    price:420,
+    category:"গ্রোসারি",
+    icon:"🍚",
+    tag:"জনপ্রিয়"
+  },
+
+  {
+    id:2,
+    name:"ফ্রেশ দুধ",
+    unit:"১ লিটার",
+    price:95,
+    category:"গ্রোসারি",
+    icon:"🥛",
+    tag:"নতুন"
+  },
+
+  {
+    id:3,
+    name:"সুপার ফ্রেশ পানি",
+    unit:"১.৫ লিটার",
+    price:30,
+    category:"পানীয়",
+    icon:"💧",
+    tag:"অফার"
+  },
+
+  {
+    id:4,
+    name:"আলুর চিপস",
+    unit:"১ প্যাকেট",
+    price:50,
+    category:"স্ন্যাকস",
+    icon:"🍟",
+    tag:""
+  },
+
+  {
+    id:5,
+    name:"ডিম",
+    unit:"১২ পিস",
+    price:150,
+    category:"গ্রোসারি",
+    icon:"🥚",
+    tag:""
+  },
+
+  {
+    id:6,
+    name:"কলা",
+    unit:"১ ডজন",
+    price:90,
+    category:"গ্রোসারি",
+    icon:"🍌",
+    tag:"ফ্রেশ"
+  },
+
+  {
+    id:7,
+    name:"কোল্ড ড্রিংক",
+    unit:"১ বোতল",
+    price:60,
+    category:"পানীয়",
+    icon:"🥤",
+    tag:""
+  },
+
+  {
+    id:8,
+    name:"বিস্কুট",
+    unit:"১ প্যাকেট",
+    price:40,
+    category:"স্ন্যাকস",
+    icon:"🍪",
+    tag:""
+  },
+
+  {
+    id:9,
+    name:"শ্যাম্পু",
+    unit:"১ বোতল",
+    price:180,
+    category:"ব্যক্তিগত",
+    icon:"🧴",
+    tag:""
+  },
+
+  {
+    id:10,
+    name:"টুথপেস্ট",
+    unit:"১ প্যাক",
+    price:120,
+    category:"ব্যক্তিগত",
+    icon:"🪥",
+    tag:""
+  }
+
+];
+
+let cart = [];
+let currentCategory = "সব";
+
+/* SHOW PRODUCTS */
+
+function renderProducts(){
+
+  const grid = document.getElementById("productGrid");
+
+  const search =
+    document.getElementById("searchInput").value
+    .toLowerCase();
+
+  const filtered = products.filter(product => {
+
+    const categoryMatch =
+      currentCategory === "সব" ||
+      product.category === currentCategory;
+
+    const searchMatch =
+      product.name.toLowerCase().includes(search);
+
+    return categoryMatch && searchMatch;
+
+  });
+
+  if(filtered.length === 0){
+
+    grid.innerHTML = `
+      <div style="grid-column:1/-1;text-align:center;padding:40px;color:#69756e;">
+        😔 কোনো পণ্য পাওয়া যায়নি
+      </div>
+    `;
+
+    return;
+  }
+
+  grid.innerHTML = filtered.map(product => `
+
+    <div class="product">
+
+      ${
+        product.tag
+        ? `<div class="product-tag">${product.tag}</div>`
+        : ""
+      }
+
+      <div class="product-img">
+        ${product.icon}
+      </div>
+
+      <h3>${product.name}</h3>
+
+      <div class="product-unit">
+        ${product.unit}
+      </div>
+
+      <div class="product-bottom">
+
+        <div class="price">
+          ৳${product.price}
+        </div>
+
+        <button
+          class="add-btn"
+          onclick="addToCart(${product.id})">
+          + যোগ করুন
+        </button>
+
+      </div>
+
+    </div>
+
+  `).join("");
+
+}
+
+/* SEARCH */
+
+function searchProducts(){
+  renderProducts();
+}
+
+/* CATEGORY */
+
+function filterCategory(category, button){
+
+  currentCategory = category;
+
+  document.querySelectorAll(".category")
+    .forEach(btn => btn.classList.remove("active"));
+
+  button.classList.add("active");
+
+  renderProducts();
+
+}
+
+/* ADD TO CART */
+
+function addToCart(id){
+
+  const existing = cart.find(item => item.id === id);
+
+  if(existing){
+    existing.qty++;
+  }else{
+
+    const product =
+      products.find(item => item.id === id);
+
+    cart.push({
+      ...product,
+      qty:1
+    });
+
+  }
+
+  updateCart();
+
+  showToast("✅ Cart-এ পণ্য যোগ হয়েছে");
+
+}
+
+/* UPDATE CART */
+
+function updateCart(){
+
+  const cartCount =
+    cart.reduce((sum,item) => sum + item.qty,0);
+
+  document.getElementById("cartCount")
+    .textContent = cartCount;
+
+  const container =
+    document.getElementById("cartItems");
+
+  if(cart.length === 0){
+
+    container.innerHTML = `
+      <div class="empty-cart">
+        <div>🛒</div>
+        <p>আপনার Cart এখনো খালি</p>
+      </div>
+    `;
+
+    document.getElementById("cartTotal")
+      .textContent = "৳0";
+
+    return;
+  }
+
+  let total = 0;
+
+  container.innerHTML = cart.map(item => {
+
+    total += item.price * item.qty;
+
+    return `
+
+      <div class="cart-item">
+
+        <div class="cart-item-img">
+          ${item.icon}
+        </div>
+
+        <div class="cart-item-info">
+
+          <div class="cart-item-name">
+            ${item.name}
+          </div>
+
+          <div class="cart-item-price">
+            ৳${item.price * item.qty}
+          </div>
+
+          <div class="qty">
+
+            <button onclick="changeQty(${item.id},-1)">
+              −
+            </button>
+
+            <strong>${item.qty}</strong>
+
+            <button onclick="changeQty(${item.id},1)">
+              +
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    `;
+
+  }).join("");
+
+  document.getElementById("cartTotal")
+    .textContent = "৳" + total;
+
+}
+
+/* CHANGE QUANTITY */
+
+function changeQty(id, change){
+
+  const item = cart.find(item => item.id === id);
+
+  if(!item) return;
+
+  item.qty += change;
+
+  if(item.qty <= 0){
+    cart = cart.filter(item => item.id !== id);
+  }
+
+  updateCart();
+
+}
+
+/* OPEN CART */
+
+function openCart(){
+
+  document.getElementById("cartDrawer")
+    .classList.add("show");
+
+  document.getElementById("overlay")
+    .classList.add("show");
+
+}
+
+/* CLOSE CART */
+
+function closeCart(){
+
+  document.getElementById("cartDrawer")
+    .classList.remove("show");
+
+  document.getElementById("overlay")
+    .classList.remove("show");
+
+}
+
+/* CHECKOUT */
+
+function openCheckout(){
+
+  if(cart.length === 0){
+
+    showToast("🛒 আগে Cart-এ পণ্য যোগ করুন");
+
+    return;
+  }
+
+  document.getElementById("checkoutModal")
+    .classList.add("show");
+
+}
+
+function closeCheckout(){
+
+  document.getElementById("checkoutModal")
+    .classList.remove("show");
+
+}
+
+/* PLACE ORDER */
+
+function placeOrder(){
+
+  const name =
+    document.getElementById("customerName").value.trim();
+
+  const phone =
+    document.getElementById("customerPhone").value.trim();
+
+  const address =
+    document.getElementById("customerAddress").value.trim();
+
+  const payment =
+    document.getElementById("payment").value;
+
+  if(!name || !phone || !address){
+
+    alert("দয়া করে সব তথ্য পূরণ করুন।");
+
+    return;
+  }
+
+  let total =
+    cart.reduce(
+      (sum,item) => sum + item.price * item.qty,
+      0
+    );
+
+  alert(
+    "অর্ডার গ্রহণ করা হয়েছে! 🎉\n\n" +
+    "নাম: " + name +
+    "\nমোবাইল: " + phone +
+    "\nঠিকানা: " + address +
+    "\nপেমেন্ট: " + payment +
+    "\nমোট: ৳" + total
+  );
+
+  cart = [];
+
+  updateCart();
+
+  closeCheckout();
+
+  closeCart();
+
+  document.getElementById("customerName").value="";
+  document.getElementById("customerPhone").value="";
+  document.getElementById("customerAddress").value="";
+
+}
+
+/* SERVICE */
+
+function showService(){
+
+  alert(
+    "🚚 আমাদের সার্ভিস এলাকা\n\n" +
+    "Cox's Bazar শহর ও আশেপাশের নির্বাচিত এলাকায় " +
+    "দ্রুত ডেলিভারি দেওয়ার পরিকল্পনা রয়েছে।"
+  );
+
+}
+
+/* TOAST */
+
+function showToast(message){
+
+  const toast =
+    document.getElementById("toast");
+
+  toast.textContent = message;
+
+  toast.classList.add("show");
+
+  setTimeout(() => {
+    toast.classList.remove("show");
+  },2000);
+
+}
+
+/* INITIAL LOAD */
+
+renderProducts();
+updateCart();
+
+</script>
+
+</body>
+</html>
