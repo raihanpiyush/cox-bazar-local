@@ -1849,7 +1849,25 @@ renderProducts();
 updateCart();
 
 </script>
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+  import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
+  const firebaseConfig = {
+    apiKey: "AIzaSyANz7kMIydw7_8jhKFvgSY7lfdkYUZk4gw",
+    authDomain: "cox-s-local.firebaseapp.com",
+    projectId: "cox-s-local",
+    storageBucket: "cox-s-local.firebasestorage.app",
+    messagingSenderId: "883972896571",
+    appId: "1:883972896571:web:732fed1b28366413a9e91e",
+    measurementId: "G-CBQCK74V0X"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  window.db = db;
+</script>
 </body>
 </html>
 
